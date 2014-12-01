@@ -6,19 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Tina on 11/27/2014.
  */
 public class FeedListViewAdapter extends ArrayAdapter<RssFeedItem> {
     private ArrayList<RssFeedItem> listData = null;
-    private LayoutInflater layoutInflater;
     private Context mContext;
 
     public FeedListViewAdapter(Context context, int resourceId, ArrayList<RssFeedItem> items) {
@@ -39,7 +35,6 @@ public class FeedListViewAdapter extends ArrayAdapter<RssFeedItem> {
         LayoutInflater mInflater = (LayoutInflater)mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null || convertView.getTag() == null) {
-            //convertView = layoutInflater.inflate(R.layout.feed_list_item, null);
             convertView = mInflater.inflate(R.layout.feed_list_item, null);
             holder = new ViewHolder();
             holder.titleTextView = (TextView) convertView.findViewById(R.id.title_text_view);
