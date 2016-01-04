@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -50,6 +53,10 @@ public class FeedListViewAdapter extends ArrayAdapter<RssFeedItem> {
 
         if (holder.thumbImageView != null) {
             new ImageDownloaderTask(holder.thumbImageView).execute(rssFeedItem.getImageUrl());
+
+            Picasso.with(mContext)
+                    .load(rssFeedItem.getImageUrl())
+                    .into(holder.thumbImageView);
         }
 
         return convertView;
